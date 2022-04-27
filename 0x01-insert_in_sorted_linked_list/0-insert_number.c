@@ -39,13 +39,13 @@ listint_t *insert_node(listint_t **head, int number)
     }
     while (tmp->next)
     {
-        tmp = tmp->next;
         if (number <= (tmp->next->n))
         {
             newnode->next = tmp->next;
             tmp->next = newnode;
             return (newnode);
         }
+        tmp = tmp->next;
     }
     tmp->next = newnode;
     newnode->next = NULL;
