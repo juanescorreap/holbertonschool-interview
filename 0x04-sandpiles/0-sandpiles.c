@@ -9,7 +9,8 @@
  */
 void grid_print(int grid[3][3])
 {
-	int i, j;
+	int i = 0;
+	int j = 0;
 
 	printf("=\n");
 	for (i = 0; i < 3; i++)
@@ -32,7 +33,8 @@ void grid_print(int grid[3][3])
  */
 void sandpiles_addition(int grid1[3][3], int grid2[3][3])
 {
-	int i, j;
+	int i = 0;
+	int j = 0;
 
 	for (i = 0; i < 3; i++)
 	{
@@ -50,7 +52,8 @@ void sandpiles_addition(int grid1[3][3], int grid2[3][3])
  */
 void sandpiles_topple(int grid1[3][3])
 {
-	int i, j;
+	int i = 0;
+	int j = 0;
 	int gridtmp[3][3];
 
 	for (i = 0; i < 3; i++)
@@ -96,7 +99,9 @@ void sandpiles_topple(int grid1[3][3])
  */
 int when_to_print(int grid1[3][3])
 {
-	int i, j;
+	int i = 0;
+	int j = 0;
+
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
