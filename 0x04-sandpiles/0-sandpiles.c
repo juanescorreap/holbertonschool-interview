@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "sandpiles.h"
+
 /**
  * print_grid - Print 3x3 grid
  * @grid: 3x3 grid
  *
  */
-static void print_grid(int grid[3][3])
+static void grid_print(int grid[3][3])
 {
     int i, j;
 
