@@ -106,7 +106,7 @@ int when_to_print(int grid1[3][3])
     return (1);
 }
 /**
- * sandpiles_addition - Function that computes the sum and toppling of two sandpiles
+ * sandpiles_sum - Function that computes the sum and toppling of two sandpiles
  * @grid1: Left 3x3 grid
  * @grid2: Right 3x3 grid
  *
@@ -114,7 +114,7 @@ int when_to_print(int grid1[3][3])
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
     sandpiles_addition(grid1, grid2);
-    while(!when_to_print(grid1))
+    while (!when_to_print(grid1))
     {
         print_grid(grid1);
         sandpiles_topple(grid1);
