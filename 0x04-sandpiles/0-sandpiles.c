@@ -41,6 +41,7 @@ void sandpiles_addition(int grid1[3][3], int grid2[3][3])
         }
     }
 }
+
 /**
  * sandpiles_topple - Function that topples a sandpile
  * @grid1: 3x3 grid
