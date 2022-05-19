@@ -5,8 +5,9 @@
 /**
  * grid_print - Print 3x3 grid
  * @grid: 3x3 grid
- *
+ * Return: void
  */
+
 void grid_print(int grid[3][3])
 {
 	int i = 0;
@@ -29,8 +30,9 @@ void grid_print(int grid[3][3])
  * sandpiles_addition - Function that computes the sum of two sandpiles
  * @grid1: Left 3x3 grid
  * @grid2: Right 3x3 grid
- *
+ * Return: void
  */
+
 void sandpiles_addition(int grid1[3][3], int grid2[3][3])
 {
 	int i = 0;
@@ -48,8 +50,9 @@ void sandpiles_addition(int grid1[3][3], int grid2[3][3])
 /**
  * sandpiles_topple - Function that topples a sandpile
  * @grid1: 3x3 grid
- *
+ * Return: void
  */
+
 void sandpiles_topple(int grid1[3][3])
 {
 	int i = 0;
@@ -92,11 +95,13 @@ void sandpiles_topple(int grid1[3][3])
 	}
 	sandpiles_addition(grid1, gridtmp);
 }
+
 /**
  * when_to_print - Function that indicates when to print a sandpile
  * @grid1: 3x3 grid
- *
+ * Return: void
  */
+
 int when_to_print(int grid1[3][3])
 {
 	int i = 0;
@@ -112,12 +117,14 @@ int when_to_print(int grid1[3][3])
 	}
 	return (1);
 }
+
 /**
  * sandpiles_sum - Function that computes the sum and toppling of two sandpiles
  * @grid1: Left 3x3 grid
  * @grid2: Right 3x3 grid
- *
+ * Return: void
  */
+
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
 	sandpiles_addition(grid1, grid2);
