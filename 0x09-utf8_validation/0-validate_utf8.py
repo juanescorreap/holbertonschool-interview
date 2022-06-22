@@ -2,6 +2,8 @@
 """
 Method that determines if a given data set represents a valid UTF-8 encoding
 """
+
+
 def validUTF8(data):
     """
     :type data: List[int]
@@ -23,7 +25,8 @@ def validUTF8(data):
 
             # Get the number of 1s in the beginning of the string.
             for bit in bin_rep:
-                if bit == '0': break
+                if bit == '0':
+                    break
                 n_bytes += 1
 
             # 1 byte characters
@@ -45,6 +48,3 @@ def validUTF8(data):
     # This is for the case where we might not have the complete data for
     # a particular UTF-8 character.
     return n_bytes == 0
-
-
-
