@@ -3,28 +3,42 @@
 The N queens puzzle is the challenge of placing
 N non-attacking queens on an NxN chessboard
 """
-import sys
-
-
-def nqueens(n: int):
-    """
-    backtracking
-    """
-    matrix = [[0 for x in range(n)] for y in range(n)]
-    print(str(matrix))
-
+from sys import argv, exit
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2 or len(sys.argv) < 2:
-        print("Usage: nqueens N")
+    if len(argv) != 2:
+        print('Usage: nqueens N')
+        exit(1)
+    try:
+        n = int(argv[1])
+    except BaseException:
+        print('N must be a number')
+        exit(1)
+    if n < 4:
+        print('N must be at least 4')
         exit(1)
 
-    if not sys.argv[1].isdigit():
-        print("N must be a number")
-        exit(1)
+    solution = []
 
-    if int(sys.argv[1]) < 4:
-        print("N must be at least 4")
-        exit(1)
+    def solve_queens(row, n, solution):
+        if (row == n):
+            print(solution)
+        else:
+            for col in range(n):
+                placement = [row, col]
+                if valid_placement(solution, placement):
+                    solution.append(placement)
+                    solve_queens(row + 1, n, solution)
+                    solution.remove(placement)
 
-    nqueens(int(sys.argv[1]))
+    def valid_placement(solution, placement):
+        for queen in solution:
+            if queen[1] == placement[1]:
+                return False
+            if (queen[0] + queen[1]) == (placement[0] + placement[1]):
+                return False
+            if (queen[0] - queen[1]) == (placement[0] - placement[1]):
+                return False
+        return True
+
+    solve_queens(0, n, solution)
