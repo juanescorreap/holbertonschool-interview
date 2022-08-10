@@ -1,11 +1,12 @@
 #!/usr/bin/node
 
 const { resolve } = require('path');
+const { async } = require('regenerator-runtime');
 const request = require('request');
-const url = 'https://swapi.dev/api/films/'
 const movieId = process.argv[2];
+const url = 'https://swapi.dev/api/films/'
 
-request(url + movieId, (error, response, body) => {
+request(url + movieId, async function (error, response, body) {
     if (error) {
         throw error;
     } else {
@@ -20,7 +21,7 @@ request(url + movieId, (error, response, body) => {
                     }
                 });
             });
-            console.log(response1)
+            console.log(response1);
         }
     }
 });
