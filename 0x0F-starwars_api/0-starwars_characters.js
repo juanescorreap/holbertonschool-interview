@@ -2,9 +2,9 @@
 
 const request = require('request');
 const movieId = process.argv[2];
-const url = 'https://swapi.dev/api/films/';
+const url = `https://swapi.dev/api/films/${movieId}/`;
 
-request(url + movieId, async function (error, response, body) {
+request(url, async function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
