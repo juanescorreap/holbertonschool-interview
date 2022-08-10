@@ -6,7 +6,7 @@ const url = 'https://swapi.dev/api/films/';
 
 request(url + movieId, async function (error, response, body) {
   if (error) {
-    throw error;
+    console.log(error);
   } else {
     const characters = JSON.parse(body).characters;
     for (const item of characters) {
