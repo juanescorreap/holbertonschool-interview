@@ -2,11 +2,11 @@
 
 const request = require('request');
 const movieId = process.argv[2];
-const url = `https://swapi.dev/api/films/${movieId}/`;
+const url = 'https://swapi.dev/api/films/';
 
-request(url, async function (error, response, body) {
+request(url + movieId, async function (error, response, body) {
   if (error) {
-    console.log(error);
+    throw error;
   } else {
     const characters = JSON.parse(body).characters;
     for (const item of characters) {
