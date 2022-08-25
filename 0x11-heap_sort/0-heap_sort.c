@@ -1,62 +1,65 @@
 #include "sort.h"
+
 /**
- * swap - swaps elements
- *
- * @i: first element
- * @j: second element
+ * swap_values - interchange 2 values of a given list
+ * @array: list of numbers
+ * @i: index of the value1 to swap
+ * @j: index of the value2 to swap
+ * @size: original len arr
+ * Return: nothing
  */
-void swap(int *i, int *j)
+void swap_values(int *array, int i, int j, int size)
 {
-	int temp = *i;
-	*i = *j;
-	*j = temp;
+	int temp = 0;
+
+	temp = array[i];
+	array[i] = array[j];
+	array[j] = temp;
+	print_array(array, size);
 }
+
 /**
- * build_heap - builds heap out of array
- *
- * @array: the array
- * @i: heap size
- * @j: root index
- * @size: Number of elements of the array
+ * heapify - organize the given list into max heap
+ * @array: list of integers
+ * @si: len of the heap sort arr
+ * @bin: parent node
+ * @size: original len array
+ * Return: nothing
  */
-void build_heap(int *array, int i, int j, size_t size)
+void heapify(int *array, int si, int bin, int size)
 {
-	int max = j;
-	int left = j * 2 + 1;
-	int right = j * 2 + 2;
+	int largt = bin, left = (bin * 2) + 1, rigth = (bin * 2) + 2;
 
-	if (left < i && array[left] > array[max])
-		max = left;
+	if (left < si && array[left] > array[largt])
+		largt = left;
 
-	if (right < i && array[right] > array[max])
-		max = right;
+	if (rigth < si && array[rigth] > array[largt])
+		largt = rigth;
 
-	if (max != j)
+	if (largt != bin)
 	{
-		swap(&array[j], &array[max]);
-		print_array(array, size);
-		build_heap(array, i, max, size);
+		swap_values(array, bin, largt, size);
+		heapify(array, si, largt, size);
 	}
 }
+
 /**
- * heap_sort - sorts an array of integers in ascending order
- * using the Heap sort algorithm
- *
- * @array: an unordered array
- * @size: Number of elements of the array
+ * heap_sort - sort a given list using heapsort
+ * @array: list of integers
+ * @size: len of the array
+ * Return: nothing
  */
 void heap_sort(int *array, size_t size)
 {
-	int i;
+	int bin = 0, si = size;
 
-	for (i = size / 2 - 1; i >= 0; i--)
-		build_heap(array, size, i, size);
+	for (bin = (size / 2) - 1; bin >= 0; bin--)
+		heapify(array, si, bin, size);
 
-	for (i = size - 1; i >= 0; i--)
+	for (bin = size - 1; bin >= 0; bin--)
 	{
-		swap(&array[0], &array[i]);
-		if (i != 0)
-			print_array(array, size);
-		build_heap(array, i, 0, size);
+		if (bin != 0)
+			swap_values(array, bin, 0, size);
+		heapify(array, bin, 0, size);
 	}
 }
